@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+  #container {
+    margin: 0px auto;
+    width: 90vw;
+    height: 90vh;
+    border: 10px #333 solid;
+  }
+
+  #video {
+    width: 90vw;
+    height: 90vh;
+    background-color: #666;
+    transform: rotateY(180deg);
+    /* 좌우 반전 */
+  }
+</style>
+
+<body>
+  <div id="container">
+    <video autoplay="true" id="video"></video>
+  </div>
+  <script>
+    const video = document.querySelector("#video");
+    if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+          video.srcObject = stream;
+        })
+        .catch(function (err) {
+          console.log("Something went wrong!", err);
+        });
+    }
+  </script>
+</body>
+
+</html>

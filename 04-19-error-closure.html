@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <button type="button" id="btn-1">버튼1</button>
+  <button type="button" id="btn-2">버튼2</button>
+  <button type="button" id="btn-3">버튼3</button>
+
+  <script>
+    function addEvent() {
+      for (var i = 1; i <= 3; i++) {
+        document.querySelector(`#btn-${i}`).addEventListener("click", () => {
+          alert(i);
+        });
+      }
+    }
+    addEvent();
+  </script>
+</body>
+
+</html>

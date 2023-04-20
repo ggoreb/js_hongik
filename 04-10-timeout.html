@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .label {
+      text-align: center;
+    }
+    .figure {
+      margin: 0 auto;
+      width: 200px; height: 200px;
+      background-color: green;
+      transition-duration: 1s;
+    }
+  </style>
+</head>
+<body>
+  <div class="label"></div>
+  <div class="figure"></div>
+  <script>
+function callback() {
+  const label = document.querySelector('.label');
+  label.innerHTML = '<h2>모습 변경</h2>';
+
+  const figure = document.querySelector('.figure');
+  figure.style.backgroundColor = 'red';
+  figure.style.borderRadius = '100px';
+}
+
+setTimeout(callback, 2000);
+  </script>
+</body>
+
+</html>

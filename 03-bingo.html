@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<style>
+  table {
+    border-spacing: 0; /* 테두리 두께 없애기 */
+    text-align: center; /* 글자 중앙정렬 */
+    font-size: 1.5em; /* 글자크기 1.5배 */
+  }
+  td {
+    border: 1px solid; /* 모든 셀의 테두리 두께 1px */
+  }
+  tr:first-child > td {
+    border-top: 3px solid; /* 상단 테두리 두께 3px */
+  }
+  tr:last-child > td {
+    border-bottom: 3px solid; /* 하단 테두리 두께 3px */
+  }
+  td:first-child {
+    border-left: 3px solid; /* 좌측 테두리 두께 3px */
+  }
+  td:last-child {
+    border-right: 3px solid; /* 우측 테두리 두께 3px */
+  }
+</style>
+<body>
+  <script>
+    /* 1 ~ 25 숫자 준비 */
+    const bingo = [
+      1, 2, 3, 4, 5, 
+      6, 7, 8, 9, 10,
+      11, 12, 13, 14, 15,
+      16, 17, 18, 19, 20,
+      21, 22, 23, 24, 25
+    ];
+
+    new Date()
+    /* 숫자 섞기 */
+    /* - 순서대로 나오는 숫자를 랜덤 위치의 숫자와 변경*/
+    for(let i = 1; i < bingo.length - 1; i++) {
+      const position = parseInt(Math.random() * (i + 1));
+      [bingo[i], bingo[position]] = [bingo[position], bingo[i]];
+    }
+
+    /* 화면에 출력 */
+    let code = '<table>';
+    for(let i = 0; i < bingo.length; i++) {
+      if(i % 5 == 0) code += '<tr>';
+
+      code += `<td>${bingo[i]}</td>`;
+      
+      if((i + 1) % 5 == 0) code += '</tr>';
+    }
+    code += '</table>';
+    console.log(code);
+    document.body.innerHTML += code;
+
+    const tds = document.querySelectorAll('td');
+    for(var i = 0; i < tds.length; i++) {
+      tds[i].addEventListener('click', function() {
+        alert(i);
+      })
+    }
+  </script>
+</body>
+
+</html>

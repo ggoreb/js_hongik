@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <script>
+    /* 추첨 번호 */
+    const lotto = [1, 8, 16];
+    let cnt = 0;
+    
+    /* 번호 3개 생성 */
+    const selected = [];
+    while (selected.length < 3) {
+      const num = parseInt(Math.random() * 45) + 1;
+      if (selected.indexOf(num) == -1) {
+        selected.push(num);
+      }
+    }
+    selected.sort((a, b) => a - b); // 정렬
+    if (lotto == selected.toString()) {
+      console.log('맞히기 성공');
+    }
+    
+    console.log(`시도 횟수: ${cnt}`);
+  </script>
+</body>
+</html>

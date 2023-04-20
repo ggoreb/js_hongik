@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    const obj = { name: 'Mike', age: 20 };
+    
+    // 속성 조회
+    console.log(obj.name); // Dot 연산자 사용
+    console.log(obj['name']); // 대괄호 사용
+
+    // 속성 추가 또는 변경
+    obj.hasJob = false;
+    obj['hasJob'] = true;
+    console.log(obj.hasJob);
+    
+    // 속성 삭제
+    delete obj.hasJob;
+    console.log(obj.hasJob);
+  </script>
+</body>
+
+</html>

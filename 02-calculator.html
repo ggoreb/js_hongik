@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<style>
+  .wrapper {
+    display: grid; grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px 100px 100px;
+  }
+  div > div {
+    background-color: rgb(207, 232, 220);
+    border: 2px solid rgb(79, 185, 227);
+    padding: 10px; border-radius: 5px;
+  }
+  #zero {
+    grid-column: 1 / 4;
+  }
+</style>
+<body>
+  <div class="wrapper">
+    <div>7</div><div>8</div><div>9</div>
+    <div>4</div><div>5</div><div>6</div>
+    <div>1</div><div>2</div><div>3</div>
+    <div id="zero">0</div>
+  </div>
+  <h1></h1>
+  <button onclick="back()">Back</button>
+
+  <script>
+    /* Back 버튼 기능 구현 */
+    function back() {
+      text = document.querySelector('h1').innerHTML;
+
+      size = text.length - 1;
+      text = text.substring(0, size);
+
+      document.querySelector('h1').innerHTML = text;
+    }
+
+    /* 모든 버튼(div > div) 선택 후 클릭 이벤트 연결 */
+    btns = document.querySelectorAll('div > div')
+    for(const btn of btns) {
+      btn.addEventListener('click', (event) => {
+        text = event.target.innerHTML;
+        document.querySelector('h1').innerHTML += text;
+      });
+    }
+  </script>
+</body>
+
+</html>

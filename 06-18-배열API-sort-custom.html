@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    const orderArray = [1, 3, 4, 2];
+    orderArray.sort(function (next, prev) {
+      console.log(`next: ${next}, prev: ${prev}`);
+      console.log(`prev - next = ${prev - next}`);
+      return prev - next;
+    });
+    console.log(`ordered array: ${orderArray}`);
+  </script>
+</body>
+
+</html>

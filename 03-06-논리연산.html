@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <script>
+    const value1 = false;
+    const value2 = 4 < 2;
+
+    // true를 찾으면 true 반환하며 종료
+    console.log(`or: ${value1 || value2 || check()}`);
+
+    // false를 찾으면 false 반환하며 종료
+    console.log(`and: ${value1 && value2 && check()}`);
+
+    function check() {
+      for(let i = 0; i < 10; i++) {
+        console.log('pass');
+      }
+      return true;
+    }
+    
+    console.log(!value1);
+  </script>
+
+</body>
+</html>

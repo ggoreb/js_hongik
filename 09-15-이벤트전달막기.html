@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    div {
+      border: 1px solid blue;
+      display: inline-block;
+    }
+
+    div>div {
+      width: 50px;
+      height: 50px;
+      margin: 20px;
+    }
+  </style>
+  <div style='width: 200px; height: 200px;'>
+    <div style='background-color: red;'></div>
+    <div style='background-color: blue; border-radius: 25px;'></div>
+  </div>
+  <script>
+    document.querySelector('div > div:first-child').addEventListener('click', (event) => {
+      console.log('red div');
+      event.stopPropagation();
+    });
+    document.querySelector('div > div:last-child').addEventListener('click', (event) => {
+      console.log('blue div');
+      event.stopPropagation();
+    });
+    document.querySelector('body > div').addEventListener('click', (event) => {
+      console.log('parent div');
+    });
+  </script>
+</body>
+
+</html>

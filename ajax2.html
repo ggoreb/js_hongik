@@ -1,0 +1,18 @@
+<body>
+  <script>
+    const ajax = fetch('http://ggoreb.com/api/youtube.jsp');
+    // const ajax = fetch('https://www.googleapis.com/youtube/v3/search?key=AIzaSyBcYq5zgED0rgC3aX00om0ThqbRPQ5V020&part=snippet&maxResults=10&order=date&type=video&q=원피스');
+    ajax.then(function (response) {
+      return response.json();
+    }).then(function (result) {
+      items = result['items']
+      for(let i = 0; i < items.length; i++) {
+        item = items[i]
+        videoId = item['id']['videoId']
+        title = item['snippet']['title']
+        url = item['snippet']['thumbnails']['default']['url']
+        console.log(title);
+      }
+    });
+  </script>
+</body>

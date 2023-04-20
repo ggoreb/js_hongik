@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    function foo(x) {
+      return function (y) {
+        console.log(`${x} : ${y}`);
+      }
+    }
+    
+    const bar1 = foo("과목");
+    bar1("국어");
+    bar1("영어");
+    bar1("수학");
+
+    const bar2 = foo("성적");
+    bar2(100);
+    bar2(90);
+    bar2(80);
+  </script>
+
+</body>
+
+</html>

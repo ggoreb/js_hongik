@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <p id="demo">text</p>
+  <button type="button" onclick="change()">change</button>
+  <script>
+    let score = 0
+    function change() {
+      let age = 10
+      return function() {
+        age += 1
+        console.log(age)
+      }
+    }
+  </script>
+</body>
+
+</html>

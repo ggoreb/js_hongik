@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <script>
+    let food1 = prompt('첫번째 음식의 금액을 입력해주세요.');
+    let food2 = prompt('두번째 음식의 금액을 입력해주세요.');
+    let cnt = prompt('나누어 낼 인원 수를 입력해주세요.');
+
+    let price = 0; // 전체 금액
+    let nPrice = 0; // 인원 수로 나눈 금액
+
+    price = Number(food1) + Number(food2)
+    nPrice = price / cnt
+
+    console.log(`전체 금액: ${price}, 인원 수: ${cnt}`);
+    console.log(`1/n 금액: ${nPrice}`);
+  </script>
+</body>
+</html>

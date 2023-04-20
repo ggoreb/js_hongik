@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <script>
+    const selected = [];
+    while (selected.length < 3) {
+      const num = parseInt(Math.random() * 45) + 1;
+      if (selected.indexOf(num) == -1) {
+        selected.push(num);
+      }
+    }
+    selected.sort((a, b) => a - b);
+    const lotto = [1, 8, 16];
+    if (lotto == selected.toString()) {
+      console.log('맞히기 성공');
+    }
+  </script>
+</body>
+
+</html>

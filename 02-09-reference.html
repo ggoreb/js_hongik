@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <script>
+    // const user = { name: 'developer', age: 30 };
+    // user['age'] = 29;
+    // console.log(user);
+    
+    const arr = [ 1, 2, 3 ];
+    // callback
+    function func(a, b, c) {
+      console.log(a, b, c)
+    }
+    arr.forEach(func)
+
+    // arr.forEach((a, b) => {
+    //   console.log(a, b)
+    // })
+
+
+    // index
+    // for(a in arr) {
+    //   console.log(arr[a])
+    // }
+    function f(a) {
+      console.log(a)
+    }
+    function forEach(f) {
+      for(i in [1, 2, 3]) {
+        f(i)
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <script>
+
+    function changeName(name) {
+      name = 'tom';
+    }
+    const name = 'john';
+    changeName(name); // 함수 호출
+    console.log(name); // 함수 호출 후 name의 값 확인
+
+    function changeNameByObject(obj) {
+      obj.name = 'tom';
+    }
+    const user = { name: 'john' };
+    changeNameByObject(user); // 함수 호출
+    console.log(user); // 함수 호출 후 user의 값 확인
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <script>
+    console.dir(document.body)
+    const date = new Date();
+
+    let hour = date.getHours();
+    let min = date.getMinutes();
+    let sec = date.getSeconds();
+
+    console.log("현재시각 : " + hour + "시 " + min + "분 " + sec + "초");
+    
+    if (hour < 12) {
+      console.log("아침");
+    } else if (hour < 18) {
+      document.body.style.backgroundImage = 'url(images/afternoon.jpg)'
+    } else {
+      console.log("저녁");
+    }
+  </script>
+
+</body>
+</html>

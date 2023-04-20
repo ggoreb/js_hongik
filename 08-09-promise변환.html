@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+const delay = (ms) => {
+  return new Promise(
+    resolve => setTimeout(resolve, ms));
+};
+const getHen = async () => {
+  await delay(1000);
+  return '🐓';
+};
+const getEgg = async (hen) => {
+  await delay(1000);
+  return `${hen} >> 🥚`;
+};
+const cook = async (egg) => {
+  await delay(1000);
+  return `${egg} >> 🍳`;
+}
+
+const run = async () => {
+  const hen = await getHen();
+  const egg = await getEgg(hen);
+  const result = await cook(egg);
+  
+  return result;
+};
+run().then((result) => {
+  console.log(result);
+});
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #content {
+      width: 90vw; height: 50vh;
+      border: 3px solid red;
+      border-radius: 30px;
+    }
+  </style>
+</head>
+
+<body>
+<div id="content"></div>
+
+<script>
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = callback;
+  xhr.open('get', 'http://ggoreb.com/ajax/html/data1.jsp');
+  xhr.send(null);
+  function callback() {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        let result = xhr.response;
+        console.log(result);
+        document.querySelector('#content').innerHTML += result;
+      }
+    }
+  }
+</script>
+</body>
+
+</html>

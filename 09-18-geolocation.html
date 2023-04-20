@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+  span {
+    font-weight: bold;
+    color: red;
+  }
+</style>
+
+<body>
+  위도 : <span id='lat'></span><br>
+  경도 : <span id='lng'></span>
+  <script>
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        const lat = position.coords.latitude
+        const lng = position.coords.longitude
+        document.querySelector('#lat').innerText = lat;
+        document.querySelector('#lng').innerText = lng;
+      }
+    );
+  </script>
+</body>
+
+</html>

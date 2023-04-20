@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    class Animal {
+      constructor(name) {
+        this.name = name;
+        console.log();
+      }
+      speak() {
+        console.log(`${this.name} makes a noise.`);
+      }
+    }
+
+    class Dog extends Animal {
+      constructor(name) {
+        super(name)
+      }
+      speak() {
+        console.log(`Override => ${this.name} 멍멍`);
+      }
+    }
+
+    const dog = new Dog('ShuShu');
+
+    console.log(dog.name);
+    
+    dog.speak();
+  </script>
+</body>
+
+</html>

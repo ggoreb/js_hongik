@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <script>
+    document.cookie = 'key1=value1';
+    document.cookie = 'key2=value2;expires=Sun, 01 Jan 2040 00:00:00 GMT';
+
+    let cookies = 'key3=value3;';
+    const expires = new Date();
+    expires.setDate(expires.getDate() + 1); // 1일이 지난 후 쿠키 삭제
+    cookies += "expires=" + expires.toGMTString() + ";";
+    document.cookie = cookies;
+  </script>
+</body>
+
+</html>

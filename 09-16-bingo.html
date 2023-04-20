@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    table {
+      width: 50vw;
+      height: 50vh;
+      border-spacing: 0;
+      text-align: center;
+      font-size: 1.5em;
+    }
+
+    td {
+      border: 1px solid black;
+    }
+
+    tr:first-child td {
+      border-top: 3px solid black;
+    }
+
+    tr:last-child td {
+      border-bottom: 3px solid black;
+    }
+
+    td:first-child {
+      border-left: 3px solid black;
+    }
+
+    td:last-child {
+      border-right: 3px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <div id='bingo'></div>
+</body>
+
+<script>
+  /* 1 ~ 9 배열 생성 */
+  const size = 3;
+  const numbers = new Array();
+  for (let i = 1; i <= size * size; i++) {
+    numbers.push(i);
+  }
+  // 배열 shuffle
+  numbers.sort(() => Math.random() - 0.5);
+  /* table 생성, 각 셀 클릭 이벤트 동작 정의 */
+  const table = document.createElement('table');
+  let tr;
+  for (let i = 0; i < numbers.length; i++) {
+    if (i % 3 == 0) {
+      tr = document.createElement('tr');
+    }
+    num = numbers[i];
+    const td = document.createElement('td');
+    const text = document.createTextNode(num);
+    tr.appendChild(td)
+    td.appendChild(text);
+    table.appendChild(tr);
+  }
+  document.querySelector('#bingo').appendChild(table);
+  document.querySelectorAll('td').forEach((e) => {
+    e.addEventListener('click', () => {
+      e.style.backgroundColor = 'lightgray';
+    });
+  });
+</script>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    const user = { name: 'Bill', age: 20 };
+
+    const user2 = {};
+    for (const key in user) {
+      user2[key] = user[key];
+    }
+    user2.name = 'Steve';
+    console.log(user2);
+
+    const user3 = {};
+    Object.assign(user3, user);
+    user3.age = 30;
+    console.log(user3);
+
+    console.log(user);
+  </script>
+</body>
+
+</html>

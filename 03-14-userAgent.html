@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<img src="" style="width:300px;">
+<script src="js/03-14-userAgent.js"></script>
+<script>
+  const client = getClient();
+  const img = document.querySelector('img');
+  switch(client) {
+    case 'AndroidPhone':
+      img.src = 'images/android.png';
+      break;
+    case 'iPhone':
+      img.src = 'images/iphone.svg';
+      break;
+    case 'iPad':
+      img.src = 'images/ipad.jpg';
+      break;
+    case 'Chrome':
+      img.src = 'images/chrome.png';
+      break;
+    default:
+      img.src = 'images/etc.webp';
+  }
+</script>
+
+</body>
+
+</html>

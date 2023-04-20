@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    const array = [10, 23, 29, 33, 37, 40];
+    let result = array.find((value, index, arr) => {
+      console.log(value, index, arr);
+      return value % 3 == 0;
+    });
+    console.log(result);
+  </script>
+</body>
+
+</html>

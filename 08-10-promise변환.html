@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    class UserStorage {
+      async loginUser(id, password) {
+        let result;
+        if ((id === 'java' && password === 'script') ||
+          (id === 'call' && password === 'back')) {
+          result = id;
+        } else {
+          throw new Error('not found');
+        }
+        return result;
+      }
+      
+      async getRoles(id) {
+        let result;
+        if (id === 'java') {
+          result = { id: 'java', role: 'admin' };
+        } else if (id === 'call') {
+          result = { id: 'call', role: 'manager' };
+        } else {
+          throw new Error('no access');
+        }
+        return result;
+      }
+    }
+
+    const userStorage = new UserStorage();
+    const id = 'java';
+    const password = 'script';
+    const run = async () => {
+      try {
+        const userId = 
+          await userStorage.loginUser(id, password);
+        const user = await userStorage.getRoles(userId);
+        alert(`Hello ${user.id}, you have a ${user.role}`);
+      } catch(result) {
+        console.log(result);
+      }
+    };
+
+    run();
+  </script>
+</body>
+
+</html>

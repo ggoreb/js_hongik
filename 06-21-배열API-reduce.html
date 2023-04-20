@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    const arr = [1, 2, 3, 4, 5];
+
+    const result = arr.reduce(function (pv, cv, idx, arr) {
+      console.log(pv, cv, idx, arr);
+      return pv + cv;
+    });
+    
+    console.log(`array: ${arr}`);
+    console.log(`result: ${result}`);
+  </script>
+</body>
+
+</html>

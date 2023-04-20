@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html>
+
+<body>
+  <div id="list"></div>
+
+  <script>
+    
+    const data = [ // 서버로부터 받은 데이터
+      { 'name': 'A', 'score': 77 },
+      { 'name': 'B', 'score': 88 },
+      { 'name': 'C', 'score': 66 },
+      { 'name': 'D', 'score': 55 },
+    ];
+
+    function check(data) {
+      const result = []; 
+      data.forEach(value => {
+        const person = {};
+        person['name'] = value.name;
+        person['score'] = value.score;
+        person['pass'] = value.score > 60 ? true : false;
+        result.push(person);
+      });
+      return result;
+    }
+
+    function show(data) {
+      let code = '<ol>';
+      data.forEach(value => {
+        code += `<li>${value.name}, ${value.score}, ${value.pass}</li>`;
+      });
+      code += '</ol>';
+
+      document.querySelector('#list').innerHTML = code;
+    }
+
+    const d = check(data);
+    show(d);
+  </script>
+</body>
+
+</html>

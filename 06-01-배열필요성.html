@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    const sun = '일';
+    const mon = '월';
+    const tue = '화';
+    const wed = '수';
+    const thu = '목';
+    const fri = '금';
+    const sat = '토';
+
+    const date = new Date();
+    const week = date.getDay();
+
+    if(week == 0) console.log(sun);
+    else if(week == 1) console.log(mon);
+    // ...
+    else console.log(sat);
+
+    switch(week) {
+      case 0: console.log(sun); break;
+      case 1: console.log(mon); break;
+      // ...
+      default: console.log(sun);
+    }
+
+    const daysOfWeek = [
+      '일', '월', '화', '수', '목', '금', '토'
+    ];
+
+    console.log(daysOfWeek[week]);
+
+  </script>
+</body>
+
+</html>

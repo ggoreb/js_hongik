@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    #category {
+      display: flex;
+      padding: 1rem;
+      width: 768px;
+      margin: 0 auto;
+    }
+    #category > div {
+      font-size: 1.125rem;
+      cursor: pointer;
+      white-space: pre;
+      text-decoration: none;
+      color: inherit;
+      padding-bottom: 0.25rem;
+    }
+    #category > div:hover { color: #495057; }
+    #category > div + div { margin-left: 1rem; }
+    #news-list {
+      box-sizing: border-box;
+      padding-bottom: 3rem;
+      width: 768px;
+      margin: 0 auto;
+      margin-top: 2rem;
+    }
+    .news-item { display: flex; }
+    .news-item + .news-item { margin-top: 3rem; }
+    .news-item .thumbnail { margin-right: 1rem; }
+    .news-item .thumbnail img {
+      display: block; width: 160px;
+      height: 100px; object-fit: cover;
+    }
+    .news-item .contents h2 { margin: 0; }
+    .news-item .contents h2 a { color: black; }
+    .news-item .contents p {
+      margin: 0; line-height: 1.5;
+      margin-top: 0.5rem; white-space: normal;
+    }
+    #category > div.active {
+      font-weight: 600; border-bottom: 2px solid #22b8cf; color: #22b8cf;
+    }
+    #category > div:hover {
+      color: #3bc9db;
+    }
+  </style>
+</head>
+
+<body>
+<div id="category">
+  <div value="all" class="active">전체보기</div>
+  <div value="business">비즈니스</div>
+  <div value="entertainment">엔터테인먼트</div>
+  <div value="health">건강</div>
+  <div value="science">과학</div>
+  <div value="sports">스포츠</div>
+  <div value="technology">기술</div>
+</div>
+
+<div id="news-list">
+  <div class="news-item">
+    <!-- 뉴스 목록이 보여질 위치 -->
+  </div>
+</div>
+  
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const divs = document.querySelectorAll('#category > div');
+    divs.forEach(div => {
+      div.addEventListener('click', (e) => {
+        removeClass();
+        const value = e.target.getAttribute('value');
+        e.target.classList.add('active');
+        getNewsList(value);
+      })
+    });
+
+    function removeClass() {
+      divs.forEach(div => {
+        div.classList.remove('active');
+      });
+    }
+
+    // https://newsapi.org/v2/top-headlines?country=kr&apiKey=9f5baf7d9f3f42879a20d7d19d9886e4
+    function getNewsList(category) {
+
+      const params = { 
+        apiKey: '9f5baf7d9f3f42879a20d7d19d9886e4',
+        country: 'kr'
+      };
+
+      if(category !== 'all') {
+        params['category'] = category
+      }
+
+      const ajax = axios({
+        url: 'https://newsapi.org/v2/top-headlines',
+        method: 'get',
+        params: params
+      });
+      ajax.then(res => {
+        const articles = res.data.articles;
+        let code = '';
+        for(const article of articles) {
+          const url = article.url;
+          const urlToImage = article.urlToImage;
+          const title = article.title;
+          const description = article.description;
+          code += `
+          <div class="news-item">
+            <div class="thumbnail">
+              <a href=${url} target="_blank">
+                <img src=${urlToImage} alt="thumbnail">
+              </a>
+            </div>
+            <div class="contents">
+              <h2>
+                <a href=${url} target="_blank">
+                  ${title}
+                </a>
+              </h2>
+              <p>${description}</p>
+            </div>
+          </div>`;
+        }
+        document.querySelector('#news-list').innerHTML = code;
+      });
+    }
+
+    getNewsList('all');
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    const animals = ['🐶', '🐱', '🐷'];
+
+    for(const key in animals) {
+      console.log(key);
+    }
+
+    for(const value of animals) {
+      console.log(value);
+    }
+
+    animals.forEach(function(animal, index, array) {
+      console.log(`${animal} | ${index} | ${array}`);
+    });
+    
+    animals.forEach((animal, index, array) => {
+      console.log(`${animal} | ${index} | ${array}`);
+    });
+  </script>
+</body>
+
+</html>

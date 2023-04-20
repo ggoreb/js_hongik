@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <button onclick="stop()">멈춤</button>
+  <script>
+    const f = function() {
+      console.log('실행!')
+    }
+    setTimeout(f, 5000)
+    
+    function f2() {
+      date = new Date()
+      min = date.getMinutes()
+      sec = date.getSeconds()
+      console.log(min, sec);
+    }
+    id = setInterval(f2, 1000)
+
+    function stop() {
+      clearInterval(id)
+    }
+
+
+    // function quiz(answer, printYes, printNo) {
+    //   if (answer === 'love you') {
+    //     printYes();
+    //   } else {
+    //     printNo();
+    //   }
+    // }
+
+    // const printYes = function () {
+    //   console.log('yes!');
+    // }
+
+    // const printNo = function () {
+    //   console.log('no!');
+    // }
+    
+    // quiz('wrong', printYes, printNo);
+    // quiz('love you', printYes, printNo);
+  </script>
+</body>
+
+</html>

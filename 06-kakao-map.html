@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+  <!-- 지도가 출력될 영역 -->
+  <div id="map" style="width:500px;height:400px;"></div>
+
+  <div class="label"></div>
+
+  <!-- 카카오 지도 라이브러리 가져오기 -->
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da146a2a6ff6a54903c1d2a7caecd1c7"></script>
+
+  <script>
+    function callback(position) {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+
+      const label = document.querySelector('.label');
+      label.innerHTML += `<h2>위도: ${lat}</h2>`;
+      label.innerHTML += `<h2>경도: ${lng}</h2>`;
+
+      initMap(lat, lng);
+    }
+    const options = {
+      enableHighAccuracy: false,
+      maximumAge: 0,
+      timeout: Infinity
+    };
+    navigator.geolocation.getCurrentPosition(callback, null, options);
+
+    let map = null; // 카카오 지도 객체
+
+    function initMap(lat, lng) { // 지도 초기화
+      const mapContainer = document.getElementById('map');
+      const mapOption = {
+        center: new kakao.maps.LatLng(lat, lng),
+        level: 3
+      };
+
+      map = new kakao.maps.Map(mapContainer, mapOption);
+
+      addMarker(data); // 데이터를 이용해서 주변 장소 표시(마커)
+    }
+  </script>
+
+  <script>
+    function addMarker(data) {
+      for (let i = 0; i < data.length; i++) {
+        const marker = new kakao.maps.Marker({
+          map: map,
+          position: new kakao.maps.LatLng(data[i].lat, data[i].lng),
+          title: data[i].title
+        });
+
+        var content = '<div class="customoverlay">' +
+          '  <a href="https://map.kakao.com/link/map/11394059" target="_blank">' +
+          '    <span class="title">스포원파크 금정체육공원</span>' +
+          '  </a>' +
+          '</div>';
+      
+        // 커스텀 오버레이가 표시될 위치입new kakao.maps.LatLng니다 
+        var position = new kakao.maps.LatLng(35.289121735171, 129.107042158715);  
+        
+        // 커스텀 오버레이를 생성합니다
+        var customOverlay = new kakao.maps.CustomOverlay({
+            map: map,
+            position: position,
+            content: content,
+            yAnchor: 1 
+        });
+      }
+    }
+
+    const data = [
+      { "name": "신비의 도로(도깨비 도로)", "lat": 33.4511642, "lng": 126.4856195 },
+      { "name": "마라도", "lat": 33.1206363, "lng": 126.2583656 },
+      { "name": "용머리해안", "lat": 33.231847, "lng": 126.3124523 },
+      { "name": "안동대학교", "lat": 36.5426215, "lng": 128.7951168 },
+      { "name": "대전복합터미널", "lat": 36.3516567, "lng": 127.4352227 },
+      { "name": "대전역", "lat": 36.332326, "lng": 127.4320223 },
+      { "name": "고려대학교 세종캠퍼스", "lat": 36.6093251, "lng": 127.2853982 },
+      { "name": "조치원역", "lat": 36.6011107, "lng": 127.2941359 },
+      { "name": "단국대학교 천안캠퍼스", "lat": 36.8375793, "lng": 127.1668739 },
+      { "name": "동탄역", "lat": 37.199327, "lng": 127.094829 },
+      { "name": "에버랜드", "lat": 37.2908718, "lng": 127.1933947 },
+      { "name": "용천초등학교", "lat": 37.1921118, "lng": 127.2079101 },
+      { "name": "부산대학교", "lat": 35.2322427971605, "lng": 129.08382445362 },
+      { "name": "다대포 꿈의 낙조분수", "lat": 35.0463817180617, "lng": 128.968006805962 },
+      { "name": "광안리 해수욕장", "lat": 35.1537727634193, "lng": 129.118519972498 },
+      { "name": "해운대 달맞이길", "lat": 35.1576814559193, "lng": 129.182542912786 },
+      { "name": "감천문화마을", "lat": 35.0974881365854, "lng": 129.010608479318 },
+      { "name": "김해공항", "lat": 35.1728739832702, "lng": 128.945800032246 },
+      { "name": "낙동강하굿둑전망대입구", "lat": 35.1095371420277, "lng": 128.948519178541 },
+      { "name": "부산역", "lat": 35.117605126596, "lng": 129.045060216345 },
+      { "name": "태종대", "lat": 35.0596949578329, "lng": 129.079805736256 },
+      { "name": "해동용궁사", "lat": 35.1882392674714, "lng": 129.223245860198 },
+      { "name": "스포원파크 금정체육공원", "lat": 35.289121735171, "lng": 129.107042158715 },
+      { "name": "용인공용터미널", "lat": 37.232692, "lng": 127.209744 },
+      { "name": "용인중앙시장", "lat": 37.235706, "lng": 127.206100 },
+      { "name": "수원화성", "lat": 37.286734, "lng": 127.011478 },
+      { "name": "보라매공원", "lat": 37.491943, "lng": 126.918722 },
+      { "name": "숭실대학교", "lat": 37.495980, "lng": 126.956244 },
+      { "name": "국립현충원", "lat": 37.499720, "lng": 126.972307 },
+      { "name": "롯데월드", "lat": 37.510725, "lng": 127.098301 },
+      { "name": "한양대학교", "lat": 37.556970, "lng": 127.045391 },
+      { "name": "서울대학교", "lat": 37.457907, "lng": 126.951590 },
+      { "name": "경복궁", "lat": 37.579070, "lng": 126.976951 },
+      { "name": "연세대학교", "lat": 37.565458, "lng": 126.937997 },
+      { "name": "김포국제공항", "lat": 37.557449, "lng": 126.794710 },
+      { "name": "인천국제공항", "lat": 37.453769, "lng": 126.440242 },
+      { "name": "하조대", "lat": 38.020442, "lng": 128.734616 },
+      { "name": "경포대", "lat": 37.795198, "lng": 128.894448 }
+    ];
+
+  </script>
+
+</body>
+
+</html>

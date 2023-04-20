@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    function sequence() {
+      let seq = 0;
+      return function () {
+        return ++seq;
+      };
+    }
+    const seq = sequence();
+    console.log(seq());
+    console.log(seq());
+    console.log(seq());
+  </script>
+
+</body>
+
+</html>

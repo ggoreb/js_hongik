@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    function getApple() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve('🍎');
+        }, 1000) 
+      });
+    }
+    function sell() {
+      return new Promise((resolve) => {
+        getApple().then(apple => resolve(apple));
+      });
+    }
+    sell().then(res => console.log(res));
+    console.log(sell()); // 사용 불가
+  </script>
+</body>
+
+</html>

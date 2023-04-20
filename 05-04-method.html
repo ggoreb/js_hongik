@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    class Person {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      speak() {
+        console.log(`${this.name}: hello!`);
+      }
+    }
+    const person = new Person('park', 30);
+    console.log(person.name);
+    console.log(person.age);
+    person.speak();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    const fetchNumber = 
+      new Promise((resolve, reject) => {
+        setTimeout(() => resolve(1), 1000);
+    })
+
+    const run = async () => {
+      let num = await fetchNumber;
+      num = num * 2;
+      num = num * 3;
+      return num - 1;
+    }
+    run().then(num => console.log(num));
+  </script>
+</body>
+
+</html>

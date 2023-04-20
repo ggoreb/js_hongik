@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <script>
+    function sequence() {
+      let seq = 0;
+      return function () {
+        seq++;
+        return seq;
+      };
+    }
+    const check = sequence();
+    window.addEventListener('blur', () => {
+      const count = check();
+      if (count > 5) {
+        alert('시험 종료!');
+        window.close();
+      }
+    });
+  </script>
+
+</body>
+
+</html>

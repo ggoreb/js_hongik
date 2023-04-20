@@ -1,0 +1,52 @@
+<meta charset="utf-8">
+<body>
+  <style>
+    #projector {
+      background-color: rgb(207, 232, 220);
+      border: 2px solid rgb(79, 185, 227);
+      padding: 10px; border-radius: 5px;
+      width: 30%;
+      text-align: center;
+      margin: 30px auto;
+    }
+    div > div {
+      text-align: center;
+      background-color: rgb(207, 232, 220);
+      border: 2px solid rgb(79, 185, 227);
+      padding: 10px; border-radius: 5px;
+    }
+    .wrapper {
+      display: grid; grid-gap: 10px;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 33% 33% 33%;
+    }
+  </style>
+
+  <div id="projector">프로젝터</div>
+
+  <div class="wrapper">
+    <div></div> <div></div> <div></div>
+    <div></div> <div></div> <div></div>
+    <div></div> <div></div> <div></div>
+  </div>
+
+  <script>
+    let persons = null;
+
+    document.querySelector('#projector').addEventListener('click', () => {
+      if(confirm('재배치?')) {
+        persons = [
+          '강남구', '남달리', '도레미', 
+          '마부장', '라면인', '박관종',
+          '사람임', '엄청나', '지정석'
+        ];
+        persons.sort(() => Math.random() - 0.5);
+        for(let i = 1; i <= persons.length; i++) {
+          document.querySelector(
+            `.wrapper > div:nth-child(${i})`).innerHTML = persons[i-1];
+        }
+      }
+    });
+    
+  </script>
+</body>

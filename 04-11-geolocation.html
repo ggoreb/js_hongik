@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <div id="map" style="width:500px;height:400px;"></div>
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da146a2a6ff6a54903c1d2a7caecd1c7"></script>
+  <script>
+    let map = null;
+    
+    function initMap(lat, lng) {
+      const mapContainer = document.getElementById('map');
+      const mapOption = {
+        center: new kakao.maps.LatLng(lat, lng),
+        level: 3
+      };
+
+      map = new kakao.maps.Map(mapContainer, mapOption);
+    }
+  </script>
+
+  <div class="label"></div>
+  <script>
+    function callback(position) {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+
+      const label = document.querySelector('.label');
+      label.innerHTML += `<h2>위도: ${lat}</h2>`;
+      label.innerHTML += `<h2>경도: ${lng}</h2>`;
+
+      initMap(lat, lng);
+    }
+    navigator.geolocation.getCurrentPosition((position) => {
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+
+      const label = document.querySelector('.label');
+      label.innerHTML += `<h2>위도: ${lat}</h2>`;
+      label.innerHTML += `<h2>경도: ${lng}</h2>`;
+
+      initMap(lat, lng);
+    });
+  </script>
+
+</body>
+
+</html>

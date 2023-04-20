@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <input type="checkbox" name="" id="" value="1">
+  <label>1번</label>
+
+  <input type="checkbox" name="" id="" value="2">
+  <label>2번</label>
+
+  <input type="checkbox" name="" id="" value="3">
+  <label>3번</label>
+  <hr>
+  <input type="checkbox" name="" id="" value="4">
+  <label>4번</label>
+  <input type="checkbox" name="" id="" value="5">
+  <label>5번</label>
+  <input type="checkbox" name="" id="" value="6">
+  <label>6번</label>
+  <hr>
+  <button onclick="del()">삭제</button>
+  <script>
+    function del() {
+      // 모든 input 선택하기
+      btns = document.querySelectorAll('input')
+      labels = document.querySelectorAll('label')
+
+      // 0부터 시작해서 모든 input의 개수-1 까지 반복 (6번)
+      for(let i = 0; i < btns.length; i++) {
+        // 모든 input 중 1개만 꺼내기
+        btn = btns[i]
+        
+        // input 중 체크가 되었다면 삭제
+        if(btn.checked) {
+          btn.remove()
+          labels[i].remove()
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

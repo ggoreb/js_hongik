@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #content {
+      width: 90vw; height: 50vh;
+      border: 3px solid blue;
+      border-radius: 30px;
+    }
+  </style>
+</head>
+
+<body>
+<div id="content"></div>
+
+<script>
+  const formData = new FormData();
+  const ajax = fetch(
+    'http://ggoreb.com/ajax/html/data2.jsp',
+    { method: 'post', body: formData }
+  );
+  ajax.then(res => {
+    return res.text();
+  }).then(result => {
+    console.log(result);
+    document.querySelector('#content').innerHTML += result;
+  });
+</script>
+</body>
+
+</html>

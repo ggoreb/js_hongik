@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<style>
+  body { height: 95vh; }
+</style>
+<body>
+  <script>
+    const date = new Date();
+
+    let hour = date.getHours();
+    let min = date.getMinutes();
+    let sec = date.getSeconds();
+
+    console.log("현재시각 : " + hour + "시 " + min + "분 " + sec + "초");
+    
+    if (hour < 12) {
+      document.body.style.backgroundImage = 'url(images/morning.webp)';
+    } else if (hour < 18) {
+      document.body.style.backgroundImage = 'url(images/afternoon.jpg)';
+    } else {
+      document.body.style.backgroundImage = 'url(images/evening.jpg)';
+    }
+  </script>
+
+</body>
+</html>

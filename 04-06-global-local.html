@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <script>
+    let globalMessage = 'global'; // global variable
+
+    function printMessage() {
+      let message = 'hello';
+      console.log(message); // local variable
+      console.log(globalMessage);
+    }
+    printMessage();
+    
+    console.log(message);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<body>
+  <script>
+    const ajax = fetch('https://newsapi.org/v2/top-headlines?country=kr&apiKey=9f5baf7d9f3f42879a20d7d19d9886e4');
+    ajax.then(function (response) {
+      return response.json();
+    }).then(function (result) {
+      articles = result['articles']
+      code = ''
+      for(let i = 0; i < articles.length; i++) {
+        article = articles[i]
+        title = article['title']
+        url = article['url']
+        code += `
+          <a href='${url}' target='_blank'>${title}</a>
+          `
+          + '<br>'
+      }
+      body = document.querySelector('body')
+      body.innerHTML += code;
+    });
+  </script>
+</body>
