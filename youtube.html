@@ -29,7 +29,7 @@
         snippet = item['snippet']
         title = snippet['title']
         thumbnails = snippet['thumbnails']
-        def = thumbnails['default']
+        def = thumbnails['high']
         link = def['url']
 
         code += `<div class="card" style="width:400px">
@@ -37,7 +37,8 @@
                   <div class="card-body">
                     <h4 class="card-title">${title}</h4>
                     <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                    <a href="https://youtube.com/watch?v=${videoId}" class="btn btn-primary">See Profile</a>
+                    <a target="_blank" 
+                    href="https://youtube.com/watch?v=${videoId}" class="btn btn-primary">See Profile</a>
                   </div>
                 </div>`
       }
