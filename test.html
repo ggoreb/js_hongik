@@ -1,4 +1,6 @@
-<div id="map" style="width:500px;height:400px;"></div>
+<body>
+  <div id="map" style="width:500px;height:400px;"></div>
+</body>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da146a2a6ff6a54903c1d2a7caecd1c7"></script>
 
@@ -43,8 +45,8 @@
       code += `<li>${name}</li>`
     }
     code += '</ul>'
-    let body = document.querySelector('body')
-    body.innerHTML += code
+    // let body = document.querySelector('body')
+    // body.innerHTML += code
   })
 
   let items = [10, 20, 30]
